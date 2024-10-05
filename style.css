@@ -1,104 +1,165 @@
+/* General reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #e7eff6, #d4c0e6); /* Gradient background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
-  .container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  h1, h2 {
-    margin-bottom: 20px;
-  }
-  
-  input[type="text"], input[type="tel"] {
-    width: 100%;
     padding: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
+}
+
+/* Container for contact manager */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff; /* White background for container */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #3a3d42; /* Darker gray for contrast */
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 15px;
+    border: 2px solid #007bff; /* Border color matches the primary color */
+    border-radius: 8px;
+    font-size: 18px;
+    color: #3a3d42; /* Darker gray */
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #0056b3; /* Darker blue on focus */
+    outline: none; /* Remove default outline */
+}
+
+input::placeholder {
+    color: #b0b3b8; /* Placeholder color */
+}
+
+/* Button styling */
+button {
+    padding: 15px;
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  ul {
+    border-radius: 8px;
+    font-size: 18px;
+    color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.95); /* Button press effect */
+}
+
+/* Primary button color */
+button#addContactBtn {
+    background-color: #007bff; /* Vibrant blue */
+}
+
+button#addContactBtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Contact list styling */
+#contactList {
     list-style: none;
     padding: 0;
-  }
-  
-  li {
-    margin: 10px 0;
+    margin-top: 30px;
+}
+
+#contactList li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  li div {
-    flex: 1;
-  }
-  
-  li button {
-    margin-left: 10px;
-  }
-  
-  @media (max-width: 768px) {
+    background-color: #f1f3f5; /* Light gray for list items */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+#contactList li:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+}
+
+/* Contact information styling */
+.contact-info {
+    flex-grow: 1;
+    text-align: left;
+    color: #3a3d42; /* Darker gray */
+    font-weight: bold; /* Bold text for names */
+}
+
+/* Contact buttons (call/message/remove) */
+.contact-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Call button styling */
+button.call-btn {
+    background-color: #28a745; /* Green for Call */
+}
+
+button.call-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Message button styling */
+button.message-btn {
+    background-color: #17a2b8; /* Teal for Message */
+}
+
+button.message-btn:hover {
+    background-color: #117a8b; /* Darker teal on hover */
+}
+
+/* Remove button styling */
+button.remove-btn {
+    background-color: #dc3545; /* Soft red for Remove */
+}
+
+button.remove-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
     .container {
-      padding: 15px;
-      width: 90%;
+        width: 100%;
+        padding: 15px;
     }
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 4px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        margin-right: 5px;
-      }
-      
-      button:hover {
-        background-color: #0056b3;
-      }
-      
-      button:last-child {
-        background-color: #ff4d4d;
-      }
-      
-      button:last-child:hover {
-        background-color: #ff1a1a;
-      }
-      
-  }
-  
+
+    #contactList li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
